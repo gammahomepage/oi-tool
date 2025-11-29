@@ -1512,16 +1512,16 @@
                 const legendName2 = hasDataset2 && dataset2.fileName ? stripFileExtension(dataset2.fileName) : key2Label;
 
                 const textCall1 = allPrices.map((price, index) => {
-                    return Math.abs(formatSignedMillion(call1[index])) > Math.abs(formatSignedMillion(call2[index])) ? `${formatNumber(price)}` : ``;
+                    return Math.abs(call1[index]) > Math.abs(call2[index]) ? `${formatNumber(price)}` : ``;
                 });
                 const textCall2 = allPrices.map((price, index) => {
-                    return Math.abs(formatSignedMillion(call1[index])) < Math.abs(formatSignedMillion(call2[index])) ? `${formatNumber(price)}` : ``;
+                    return Math.abs(call1[index]) < Math.abs(call2[index]) ? `${formatNumber(price)}` : ``;
                 });
                 const textPut1 = allPrices.map((price, index) => {
-                    return Math.abs(formatSignedMillion(-put1[index])) > Math.abs(formatSignedMillion(-put2[index])) ? `${formatNumber(price)}` : ``;
+                    return Math.abs(put1[index]) > Math.abs(put2[index]) ? `${formatNumber(price)}` : ``;
                 });
                 const textPut2 = allPrices.map((price, index) => {
-                    return Math.abs(formatSignedMillion(-put1[index])) < Math.abs(formatSignedMillion(-put2[index])) ? `${formatNumber(price)}` : ``;
+                    return Math.abs(put1[index]) < Math.abs(put2[index]) ? `${formatNumber(price)}` : ``;
                 });
 
                 // 準備要顯示的traces - 分別顯示 Call 和 Put
